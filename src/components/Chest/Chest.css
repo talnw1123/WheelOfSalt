@@ -1,0 +1,61 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  background: linear-gradient(to bottom, #041a41, #0400ffb4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  text-align: center;
+  color: white;
+}
+
+.App-header {
+  font-size: 2em;
+  margin: 20px;
+}
+
+.item-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.item {
+  background: linear-gradient(to bottom, #00338c, #0400ff77);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.item-name {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.item-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.item-price {
+  margin-top: 10px;
+}
+
+.price-trapezoid {
+  width: 100%;
+  height: 40px;
+  background-color: #0044cc;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+}
