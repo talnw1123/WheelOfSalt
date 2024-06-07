@@ -1,0 +1,62 @@
+/* src/components/Navbar.css */
+.navbar {
+  background-color: #0400ff77;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* เพื่อให้ Navbar อยู่บนสุด */
+}
+
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  min-width: 200px;
+  display: none; /* ซ่อน dropdown */
+}
+
+.nav-item:hover .dropdown {
+  display: block; /* แสดง dropdown เมื่อ hover ที่ nav-item */
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  color: black;
+  text-decoration: none;
+  display: block;
+  cursor: pointer; /* เปลี่ยน cursor เป็น pointer */
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+}

@@ -1,195 +1,22 @@
-// import React from 'react';
-// import './App.css';
-
-// const CaseItem = ({ caseType, caseItem }) => {
-//     return (
-//       <div className="case-item">
-//         <h2>{caseType}</h2>
-//         <div className="price">
-//           <span>Robux</span>
-//           {caseItem.price}
-//         </div>
-//         <button>Open Case</button>
-//       </div>
-//     );
-// };
-
-// const HomePage = () => {
-//   const cases = {
-//     Daily_skin: {
-//       Daily_Case: {
-//         Free: { price: 0 },
-//         Ultra_Case: { price: 1 },
-//         Rust_Case: { price: 1.1 },
-//         Chocolate_Case: { price: 1.4 },
-//         Ember_Case: { price: 1.5 },
-//       },
-//     },
-//     Face_Skin: {
-//       price: 10,
-//     },
-//     ITEM: {
-//       price: 15,
-//     },
-//     WEAPON: {
-//       price: 20,
-//     },
-//   };
-
-//   return (
-//     <div className="homepage">
-//       <h1>Roblox Cases</h1>
-//       <div className="case-list">
-//         {Object.entries(cases).map(([caseType, caseItem]) => (
-//           <CaseItem key={caseType} caseType={caseType} caseItem={caseItem} />
-//         ))}
-//       </div>
-//     </div>
-//   );
-  
-// };
-
-// export default HomePage;
-
-// import React from 'react';
-
-// const MediumCase = () => {
-//   return (
-//     <article className="ContainerBox AppPage_container ContainerBox--hoverable">
-//       <div className="ContainerBox_inner">
-//         <a href="/case/medium-case" className="ContainerBox_container">
-//           <h3 className="ContainerBox_name">
-//             Medium Case
-//           </h3>
-//           <div className="ContainerBox_thumbnail">
-//             <div className="ContainerImage thumbnail_image">
-//               <img
-//                 src="https://media.csgo-skins.com/container/3.png"
-//                 alt=""
-//                 aria-hidden="true"
-//                 loading="lazy"
-//                 width="235"
-//                 height="148"
-//                 className="ContainerImage_image"
-//               />
-//             </div>
-//             <div className="thumbnail_shadow" style={{ color: 'rgb(132,146,167, 1)' }}></div>
-//           </div>
-//           <div className="ContainerBox_price">
-            
-//             <div className="price_value">
-//               <div className="ContainerPrice">
-//                 <span className="Currency">
-//                   $0.75
-//                 </span>
-//               </div>
-//             </div>
-//             <svg
-//               width="165"
-//               height="42"
-//               viewBox="0 0 165 42"
-//               version="1.1"
-              
-//               className="price_box"
-//               style={{ fillRule: 'evenodd', clipRule: 'evenodd', strokeLinejoin: 'round', strokeMiterlimit: 2 }}
-//             >
-//               <g transform="matrix(1.02439,0,0,1.02439,0,0)">
-//                 <path
-//                   d="M0,41L161,41L140.875,4.164C139.472,1.597 136.78,0 133.855,0L27.145,0C24.22,0 21.528,1.597 20.125,4.164L0,41Z"
-//                   style={{ fill: 'currentColor', fillRule: 'nonzero' }}
-//                 />
-//               </g>
-//             </svg>
-//           </div>
-//         </a>
-//       </div>
-//     </article>
-//   );
-// };
-
-// export default MediumCase;
-
-
-// import React from 'react';
-// import './App.css';
-
-// const CaseItem = ({ caseType, price }) => {
-//   return (
-//     <div className="ContainerBox_container">
-//       <h3 className="ContainerBox_name">{caseType}</h3>
-//       <div className="ContainerBox_thumbnail">
-//         <div className="ContainerImage thumbnail_image">
-//           <img
-//             src="https://media.csgo-skins.com/container/3.png"
-//             alt=""
-//             aria-hidden="true"
-//             loading="lazy"
-//             width="235"
-//             height="148"
-//             className="ContainerImage_image"
-//           />
-//         </div>
-//         <div className="thumbnail_shadow" style={{ color: 'rgb(132,146,167, 1)' }}></div>
-//       </div>
-//       <div className="ContainerBox_price">
-//         <div className="price_value">
-//           <div className="ContainerPrice">
-//             <span className="Currency">
-//               ${price}
-//             </span>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// const HomePage = () => {
-//   const cases = {
-//     Daily_box: {
-//       Free: { price: 0 },
-//       UltraCase: { price: 1 },
-//       Rust_Case: { price: 1.1 },
-//       Chocolate_Case: { price: 1.4 },
-//     },
-//     Paid_box: {
-//       Ember_Case: { price: 1.5 },
-//       Face_Skin: { price: 10 },
-//       ITEM: { price: 15 },
-//       WEAPON: { price: 20 },
-//     },
-//   };
-
-//   const freeCases = Object.entries(cases.Daily_box);
-//   const paidCases = Object.entries(cases.Paid_box);
-
-
-//   return (
-//     <div className="homepage">
-//       <h1>Roblox Cases</h1>
-//       <div className="case-list">
-//         {freeCases.map(([caseType, { price }]) => (
-//           <CaseItem key={caseType} caseType={caseType} price={price} />
-//         ))}
-//       </div>
-//       <div className="case-list">
-//         {paidCases.map(([caseType, { price }]) => (
-//           <CaseItem key={caseType} caseType={caseType} price={price} />
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default HomePage;
-
+import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { RecoilRoot, useRecoilValue, useSetRecoilState } from 'recoil';
 
 import Chest from './components/Chest/Chest';
 import Dashboard from './components/AdminSide/dashBoard/Dashboard';
 import UserTable from './components/AdminSide/findUsers/UserTable';
 import ManageItem from './components/AdminSide/addItem/ManageItem';
 import ManageTransaction from './components/AdminSide/transactions/ManageTransaction';
+import RegisterForm from './components/Register/Register';
+import Navbar from './components/Navbar/navbar';
+import LoginForm from './components/Login/Login';
+import AdminNavbar from './components/AdminSide/AdminNavbar/AdminNavbar';
+
 import './index.css'
+
+
+import userState from './components/ีUserRecoil';
+import { isTokenExpired } from './components/CheckToken';
 
 const mockData = [
   { username: 'user1', email: 'user1@example.com', amount: '100', createAt: '2023-01-01' },
@@ -213,14 +40,64 @@ const mockData = [
   { username: 'user19', email: 'user19@example.com', amount: '1900', createAt: '2023-01-19' },
   { username: 'user20', email: 'user20@example.com', amount: '2000', createAt: '2023-01-20' },
 ];
-function App() {
 
+const App = () => {
+  const user = useRecoilValue(userState);
+  const setUser = useSetRecoilState(userState);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (user.token) {
+        if (isTokenExpired(user.token)) {
+          setUser({ email: '', token: '' });
+          localStorage.removeItem('user');
+        }
+      }
+    }, 60000); // Check every 60 seconds
+
+    return () => clearInterval(interval);
+  }, [user.token, setUser]);
+  
   return (
-    <div className=" ">
-      <Dashboard/>
-      <UserTable data={mockData}/>
-      <ManageItem/>
-      <ManageTransaction/>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<div> {/* ให้มี div หรือ fragment เพื่อครอบรอบ Navbar และ Hero */}
+            <Navbar />
+            <Chest />
+          </div>} />
+
+          <Route path="/register" element={<div> {/* ให้มี div หรือ fragment เพื่อครอบรอบ Navbar และ Hero */}
+            <Navbar />
+            <RegisterForm />
+          </div>} />
+
+          <Route path="/login" element={<div> {/* ให้มี div หรือ fragment เพื่อครอบรอบ Navbar และ Hero */}
+            <Navbar />
+            <LoginForm />
+          </div>} />
+
+          <Route path="/admin/dashboard" element={<div> {/* ให้มี div หรือ fragment เพื่อครอบรอบ Navbar และ Hero */}
+            <AdminNavbar />
+            <Dashboard/>
+          </div>} />
+
+          <Route path="/admin/manageItem" element={<div> {/* ให้มี div หรือ fragment เพื่อครอบรอบ Navbar และ Hero */}
+            <AdminNavbar />
+            <ManageItem/>
+          </div>} />
+
+          <Route path="/admin/manageUsers" element={<div> {/* ให้มี div หรือ fragment เพื่อครอบรอบ Navbar และ Hero */}
+            <AdminNavbar />
+            <UserTable data={mockData}/>
+          </div>} />
+
+          <Route path="/admin/manageTransactions" element={<div> {/* ให้มี div หรือ fragment เพื่อครอบรอบ Navbar และ Hero */}
+            <AdminNavbar />
+            <ManageTransaction/>
+          </div>} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
