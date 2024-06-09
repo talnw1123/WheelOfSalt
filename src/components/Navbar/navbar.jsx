@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import userState from '../ีUserRecoil';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 import './navbar.css';
 
 const Navbar = () => {
@@ -12,7 +14,8 @@ const Navbar = () => {
   const setUser = useSetRecoilState(userState);
   const [username, setUsername] = useState('');
   const [balance, setBalance] = useState(0);
-
+  const navigate = useNavigate();
+  
   useEffect(() => {
     if (user.token) {
       fetchUsernameAndBalance();
@@ -86,7 +89,7 @@ const Navbar = () => {
           {showProfileDropdown && user.token && (
             <ul className="dropdown">
               <li className="dropdown-item" onClick={() => handleClick('โปรไฟล์')}>โปรไฟล์</li>
-              <li className="dropdown-item" onClick={() => handleClick('เติมเงิน')}>เติมเงิน</li>
+              <li className="dropdown-item" onClick={() => navigate('/topup')}>เติมเงิน</li>
               <li className="dropdown-item" onClick={handleLogout}>Sign out</li>
             </ul>
           )}

@@ -1,0 +1,49 @@
+.wheel-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wheel-container {
+  position: relative;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.wheel-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pointer {
+  position: absolute;
+  top: 50%;
+  right: -15px; /* Adjusted to position the pointer on the right */
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+}
+
+.pointer img {
+  width: 100%;
+  height: 100%;
+}
+
+.result, .random-degree {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.wheel-container canvas {
+  display: block;
+  margin: auto;
+}

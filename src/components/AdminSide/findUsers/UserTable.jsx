@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
+import axios from 'axios';
 
 const UserTable = ({ data }) => {
   const [currentPage, setCurrentPage] = useState(0);
@@ -45,8 +46,17 @@ const UserTable = ({ data }) => {
     setSelectedUser({ ...selectedUser, [name]: value });
   };
 
-  const handleSave = () => {
-    // Save the changes (e.g., update state or send to server)
+  const handleSave = async () => {
+    try {
+      const response = await axios.post(`http://localhost:4400/api/updateUser/${selectedUser._id}`, selectedUser);
+      if (response.status === 200) {
+        alert('User updated successfully');
+      } else {
+        alert('Failed to update user');
+      }
+    } catch (error) {
+      alert('Error updating user: ' + error.message);
+    }
     closeModal();
   };
 
@@ -76,8 +86,8 @@ const UserTable = ({ data }) => {
             <tr key={index}>
               <td className="px-6 py-4 whitespace-nowrap text-black">{user.username}</td>
               <td className="px-6 py-4 whitespace-nowrap text-black">{user.email}</td>
-              <td className="px-6 py-4 whitespace-nowrap text-black">{user.amount}</td>
-              <td className="px-6 py-4 whitespace-nowrap text-black">{user.createAt}</td>
+              <td className="px-6 py-4 whitespace-nowrap text-black">{user.money}</td>
+              <td className="px-6 py-4 whitespace-nowrap text-black">{new Date(user.createdAt).toLocaleString()}</td>
               <td className="px-6 py-4 whitespace-nowrap text-black">
                 <button
                   onClick={() => openModal(user)}
@@ -158,8 +168,8 @@ const UserTable = ({ data }) => {
               <label className="block text-gray-700 text-sm font-bold mb-2">จำนวนเงิน / Points</label>
               <input
                 type="number"
-                name="amount"
-                value={selectedUser.amount}
+                name="money"
+                value={selectedUser.money}
                 onChange={handleInputChange}
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
